@@ -20,7 +20,8 @@ export const Input: React.FC<InputProps> = ({
   readOnly,
   name,
   children,
-}, props) => {
+  handleChange
+}) => {
   return (
     <>
       <label htmlFor={id}>{label || ""}</label>
@@ -31,7 +32,7 @@ export const Input: React.FC<InputProps> = ({
           id={id}
           name={name}
           placeholder={placeholder || ''}
-          onChange={ ((e) => props?.handleChange(e)) }
+          onChange={ ((e) => handleChange(e)) }
           readOnly={readOnly || false}
         />
         {children || ""}
