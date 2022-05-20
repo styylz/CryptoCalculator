@@ -15,14 +15,12 @@ export const Input: React.FC<InputProps> = ({
   label,
   type,
   value,
-  handleChange,
   id,
   placeholder,
   readOnly,
   name,
   children,
-}) => {
-  console.log(value);
+}, props) => {
   return (
     <>
       <label htmlFor={id}>{label || ""}</label>
@@ -33,7 +31,7 @@ export const Input: React.FC<InputProps> = ({
           id={id}
           name={name}
           placeholder={placeholder || ''}
-          onChange={handleChange ? ((e) => handleChange(e)) : ''}
+          onChange={ ((e) => props?.handleChange(e)) }
           readOnly={readOnly || false}
         />
         {children || ""}
